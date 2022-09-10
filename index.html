@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notes app</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header><h1>Notes app</h1></header>
+    <main>
+      <section>
+        <div class="table-wrap">
+          <table class="notes-list">
+            <caption>
+              List
+            </caption>
+            <thead>
+              <tr>
+                <td class="icons"></td>
+                <th>Name</th>
+                <th>Created</th>
+                <th>Category</th>
+                <th>Content</th>
+                <th>Dates</th>
+                <td class="controls">controls</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="note">
+                <td class="icon task"></td>
+                <th class="name">Shopping list</th>
+                <td class="created">April 20, 2021</td>
+                <td class="category">Task</td>
+                <td class="content">Tomatoes, bread</td>
+                <td class="dates">12/20/2012</td>
+                <td class="controls">
+                  <span class="edit">*edit*</span>
+                  <span class="archivate">*to archive*</span>
+                  <span class="delete">*delete*</span>
+                </td>
+              </tr>
+              <tr class="note">
+                <td class="icon random-thought"></td>
+                <th class="name">The theory of evolution</th>
+                <td class="created">April 17, 2021</td>
+                <td class="category">Random thought</td>
+                <td class="content">What if dinosaurs was</td>
+                <td class="dates">12/20/2012, 01/01/2022</td>
+                <td class="controls">
+                  <span class="edit">*edit*</span>
+                  <span class="archivate">*to archive*</span>
+                  <span class="delete">*delete*</span>
+                </td>
+              </tr>
+              <tr class="note">
+                <td class="icon idea"></td>
+                <th class="name">Invention idea</th>
+                <td class="created">April 10, 2021</td>
+                <td class="category">Idea</td>
+                <td class="content">If i can find out how to do that thing</td>
+                <td class="dates">12/20/2012, 01/01/2022</td>
+                <td class="controls">
+                  <span class="edit">*edit*</span>
+                  <span class="archivate">*to archive*</span>
+                  <span class="delete">*delete*</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <div class="add-note"><button>Add new note</button></div>
+
+      <section>
+        <div class="table-wrap">
+          <table class="summary">
+            <caption>
+              Summary
+            </caption>
+            <thead>
+              <tr>
+                <td class="icons"></td>
+                <th>Category</th>
+                <th>Active</th>
+                <th>Archived</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="icon"></td>
+                <th class="name">Task</th>
+                <td class="active">12</td>
+                <td class="archived">15</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
