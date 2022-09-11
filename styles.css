@@ -10,8 +10,11 @@
   --persian-orange: #d68c45ff;
 }
 
-html {
+* {
   box-sizing: border-box;
+}
+
+html {
   background: var(--lavender-web);
   font-family: "Space Grotesk", sans-serif;
   color: var(--black-chocolate);
@@ -30,9 +33,11 @@ main {
 section header {
   margin: 0 1.8rem;
 }
+
 h1 {
   margin: 1rem;
 }
+
 h2 {
   color: var(--dark-pastel-green);
   font-size: 1.3em;
@@ -53,7 +58,11 @@ h2 {
   gap: 0.5rem;
 }
 
-.top-controls .control {
+/* Every selector which need center align with flex */
+.top-controls .control,
+.top-controls .control i,
+tbody tr.note .icon-cell,
+.icon {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -61,9 +70,6 @@ h2 {
 }
 
 .top-controls .control i {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   font-style: normal;
   height: 1.8rem;
   width: 1.8rem;
@@ -122,8 +128,7 @@ tbody tr:hover {
 }
 
 /* Note row styles */
-tbody tr.note td,
-tbody tr.note th {
+tbody tr.note :where(td, th) {
   padding: 0.3rem 0.4rem;
 }
 
@@ -133,16 +138,10 @@ tbody tr.note th {
 }
 
 tbody tr.note .icon-cell {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   padding-right: 0.3rem;
 }
 
 .icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   background: var(--hookers-green);
   color: var(--forest-green-crayola);
   font-size: 1.1rem;
@@ -151,13 +150,11 @@ tbody tr.note .icon-cell {
   border-radius: 50%;
 }
 
-tbody tr td.content {
+tbody td.content {
   max-width: 13rem;
 }
 
-tbody td.created,
-tbody td.category,
-tbody td.dates {
+tbody td:where(.created, .category, .dates) {
   font-size: 0.9rem;
 }
 
@@ -179,15 +176,15 @@ tbody .controls .icon:hover {
   transform: scale(1.1);
 }
 
+/* Summary table  start */
 .summary table {
   max-width: 100%;
-  border: 5px;
 }
 
-.summary th,
-.summary td {
+.summary :where(th, td) {
   padding: 0.5rem;
 }
+
 .summary td:first-of-type {
   padding-left: 1rem;
 }
@@ -199,12 +196,15 @@ tbody .controls .icon:hover {
 .summary th {
   text-align: left;
 }
+
 .summary td {
   text-align: center;
 }
+/* Summary table  start */
 
+/* Popup form start */
 .popup,
-.content header {
+.popup .content header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -225,7 +225,7 @@ tbody .controls .icon:hover {
   top: 50%;
   left: 50%;
   z-index: 2;
-  max-width: 400px;
+  max-width: 600px;
   width: 100%;
   border-radius: 5px;
   transform: translate(-50%, -50%);
@@ -247,48 +247,68 @@ tbody .controls .icon:hover {
 
 .popup .content {
   width: calc(100% - 15px);
-  background: #fff;
+
+  background: var(--middle-green);
 }
 
 .popup .content header {
-  padding: 15px 25px;
-  border-bottom: 1px solid #ccc;
+  padding: 0 25px;
+  border-bottom: 2px solid var(--hookers-green);
 }
 
 .content .details {
   max-height: 165px;
   overflow-y: auto;
 }
+
+.content header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .content header p {
   font-weight: 500;
-  font-size: 20px;
+  font-size: 1.8rem;
 }
 
 .content header i {
-  color: #8b8989;
+  color: var(--hookers-green);
   cursor: pointer;
-  font-size: 23px;
+  font-size: 2rem;
+}
+
+.content header i:hover {
+  color: var(--persian-orange);
 }
 
 .content form {
   margin: 15px 25px 35px;
 }
+
 .content form .row {
   margin-bottom: 20px;
 }
+
 .content form .row label {
   display: block;
-  font-size: 18px;
+  font-size: 19px;
   margin-bottom: 6px;
 }
-.content form :where(input, textarea) {
+
+.content form :where(input, textarea, select) {
   width: 100%;
   height: 50px;
   outline: none;
   font-size: 18px;
   padding: 0 15px;
   border-radius: 4px;
-  border: 1px solid #999;
+  border: 2px solid var(--hookers-green);
+}
+
+.content form :where(input:focus, textarea:focus, select:focus) {
+  border-color: var(--persian-orange);
 }
 
 .content form textarea {
@@ -302,8 +322,14 @@ tbody .controls .icon:hover {
   height: 50px;
   border: none;
   outline: none;
-  color: #fff;
+  cursor: pointer;
   font-size: 18px;
   border-radius: 4px;
-  background: #6a93f8;
+  background: var(--hookers-green);
+  color: var(--forest-green-crayola);
 }
+.content form button:hover {
+  background: var(--persian-orange);
+  color: var(--lavender-web);
+}
+/* Popup form end */
