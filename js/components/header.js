@@ -12,7 +12,7 @@ export const showArchiveHandler = (event) => {
 
 
 export const showError = (text) => {
-    document.querySelector('section.notes-list header h2').innerHTML(text);
+    document.querySelector('section.notes-list header h2').innerHTML = text;
     document.querySelector('section.notes-list header h2').classList.add('error');
 }
 

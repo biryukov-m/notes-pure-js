@@ -1,7 +1,7 @@
 import { deleteNote, toggleArchivateNote } from "../helpers.js";
 import { renderPopup, togglePopup } from "./popup.js";
 import { renderSummary } from "./summary.js";
-import { showError } from "./header";
+import { showError } from "./header.js";
 
 
 const deleteNoteHandler = (event) => {
@@ -28,6 +28,7 @@ const editNoteHandler = (event) => {
 
 
 const archivateNoteHandler = (event) => {
+  showError('Something went wrong while archivating');
 
   try {
     const index = event.currentTarget.note_id;
