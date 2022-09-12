@@ -1,15 +1,22 @@
 import { deleteNote, toggleArchivateNote } from "../helpers.js";
 import { renderPopup, togglePopup } from "./popup.js";
 import { renderSummary } from "./summary.js";
+import { showError } from "./header";
 
 
 const deleteNoteHandler = (event) => {
   let confirmDel = confirm("Are you sure you want to delete note?");
   if (!confirmDel) return;
-  const index = event.currentTarget.note_id;
-  const newNotes = deleteNote(index);
-  renderNotes(newNotes);
-  renderSummary(newNotes);
+
+  try {
+    const index = event.currentTarget.note_id;
+    const newNotes = deleteNote(index);
+    renderNotes(newNotes);
+    renderSummary(newNotes);
+  } catch (error) {
+    showError('Something went wrong while deleting');
+  }
+
 }
 
 
@@ -21,12 +28,19 @@ const editNoteHandler = (event) => {
 
 
 const archivateNoteHandler = (event) => {
-  const index = event.currentTarget.note_id;
-  const isRenderToArchived = event.currentTarget.is_show_archivate;
-  const newNotes = toggleArchivateNote(index);
 
-  renderNotes(newNotes, isRenderToArchived);
-  renderSummary(newNotes);
+  try {
+    const index = event.currentTarget.note_id;
+    const isRenderToArchived = event.currentTarget.is_show_archivate;
+    const newNotes = toggleArchivateNote(index);
+
+    renderNotes(newNotes, isRenderToArchived);
+    renderSummary(newNotes);
+  } catch (error) {
+    showError('Something went wrong while archivating');
+  }
+
+
 };
 
 

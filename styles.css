@@ -53,6 +53,12 @@ h2 {
   margin: 0.5rem 1.8rem 0;
 }
 
+.notes-list header .error {
+  color: --var(--persian-orange);
+  transform: scale(1.1);
+  transition: all 1s ease-in;
+}
+
 .notes-list header .top-controls {
   display: flex;
   gap: 0.5rem;

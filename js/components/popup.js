@@ -1,5 +1,6 @@
 import { CATEGORIES } from "../config.js";
 import { getDate, addNote, updateNote, notesStore, parseDates } from "../helpers.js";
+import { showError } from "./header.js";
 import { renderNotes } from "./notes.js";
 import { renderSummary } from "./summary.js";
 
@@ -34,18 +35,24 @@ export const getPopupInfo = () => {
 // Handle button click on popup form
 export const handleAddBtn = (event) => {
     event.preventDefault();
-    const isUpdate = event.currentTarget.is_update;
-    const updateId = event.currentTarget.update_id;
-    const newNote = getPopupInfo();
-    const newNotes = isUpdate ? updateNote(newNote, updateId) : addNote(newNote);
 
-    // Resets popup form after new note added
-    resetPopup();
-    togglePopup();
-    // Renders notes list to display list with new note
-    renderNotes(newNotes);
-    renderPopup();
-    renderSummary(newNotes);
+    try {
+        const isUpdate = event.currentTarget.is_update;
+        const updateId = event.currentTarget.update_id;
+        const newNote = getPopupInfo();
+        const newNotes = isUpdate ? updateNote(newNote, updateId) : addNote(newNote);
+
+        // Resets popup form after new note added
+        resetPopup();
+        togglePopup();
+        // Renders notes list to display list with new note
+        renderNotes(newNotes);
+        renderPopup();
+        renderSummary(newNotes);
+    } catch (error) {
+        showError('Something went wrong while adding or updating note')
+    }
+
 }
 
 // Handles click on close icon
