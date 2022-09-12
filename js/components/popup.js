@@ -3,13 +3,15 @@ import { getDate, addNote, updateNote, notesStore } from "../helpers.js";
 import { renderNotes } from "./notes.js";
 import { renderSummary } from "./summary.js";
 
-
+// Makes popup visible/invisible with CSS class "show"
 export const togglePopup = () => {
     document.querySelector('.popup-wrapper').classList.toggle('show');
 };
 
+// Clears all inputs in form
 export const resetPopup = () => document.querySelector(".popup form").reset();
 
+// Gets all data from inputs and returns in proper note object
 export const getPopupInfo = () => {
     const
         popup = document.querySelector(".popup"),
@@ -26,44 +28,37 @@ export const getPopupInfo = () => {
         dates: "",
         archived: false
     };
-
-}
-
+};
 
 // Handle button click on popup form
 export const handleAddBtn = (event) => {
     event.preventDefault();
     const isUpdate = event.currentTarget.is_update;
     const updateId = event.currentTarget.update_id;
-
-
     const newNote = getPopupInfo();
-
-
     const newNotes = isUpdate ? updateNote(newNote, updateId) : addNote(newNote);
 
     // Resets popup form after new note added
     resetPopup();
     togglePopup();
     // Renders notes list to display list with new note
-    renderNotes(newNotes, document.querySelector('.notes-list tbody'));
+    renderNotes(newNotes);
     renderPopup();
     renderSummary(newNotes);
 }
 
+// Handles click on close icon
 export const handleCloseIcon = () => {
     togglePopup();
     resetPopup();
 };
 
 
-export const renderPopup = (updateId, isUpdate = false, root = document.querySelector('body')) => {
+export const renderPopup = (updateId, isUpdate = false) => {
     // Remove old popup before rendering new
     if (document.querySelector('.popup-wrapper')) {
         document.querySelector('.popup-wrapper').remove();
     }
-
-    const header = isUpdate ? 'Edit note' : '';
 
     const component = `
         <div class="popup-wrapper">
@@ -96,8 +91,10 @@ export const renderPopup = (updateId, isUpdate = false, root = document.querySel
             </div>
         </div>
         `
-    root.insertAdjacentHTML("afterbegin", component);
+    document.querySelector('body').insertAdjacentHTML("afterbegin", component);
 
+    // If in updating state
+    // Fills form with data of note, which edit triggered
     if (isUpdate) {
         const notes = notesStore();
         const note = notes[updateId];
@@ -105,7 +102,7 @@ export const renderPopup = (updateId, isUpdate = false, root = document.querySel
             popup = document.querySelector(".popup"),
             headerTag = popup.querySelector("header p"),
             titleTag = popup.querySelector(".title input"),
-            formAddButton = document.querySelector('.popup form button'),
+            addButton = document.querySelector('.popup form button'),
             textTag = popup.querySelector(".description textarea"),
             categoryTag = popup.querySelector(".category select");
 
@@ -113,16 +110,17 @@ export const renderPopup = (updateId, isUpdate = false, root = document.querySel
         titleTag.value = note.title;
         textTag.value = note.text;
         categoryTag.value = note.category.selector;
-        formAddButton.innerText = 'Update note';
-
-        formAddButton.update_id = updateId;
-        formAddButton.is_update = isUpdate;
+        addButton.innerText = 'Update note';
+        // Props for handker
+        addButton.update_id = updateId;
+        addButton.is_update = isUpdate;
     }
 
+    // Adds listeners to control elements
     const
-        formAddButton = document.querySelector('.popup form button'),
+        addButton = document.querySelector('.popup form button'),
         formCloseIcon = document.querySelector('.popup .content header i');
 
     formCloseIcon.addEventListener("click", handleCloseIcon);
-    formAddButton.addEventListener("click", handleAddBtn);
+    addButton.addEventListener("click", handleAddBtn);
 }; 

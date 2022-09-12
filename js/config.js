@@ -53,6 +53,14 @@ const INITIAL_NOTES = [
         dates: "12/20/2012",
         archived: false
     },
+    {
+        date: 'April 2, 2021',
+        title: 'Invention idea',
+        text: 'If i can find out how to do that thing',
+        category: CATEGORIES.idea,
+        dates: "",
+        archived: true
+    },
 ];
 
 const MONTHS = [
