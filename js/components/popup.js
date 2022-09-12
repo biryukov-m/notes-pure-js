@@ -1,5 +1,5 @@
 import { CATEGORIES } from "../config.js";
-import { getDate, addNote, updateNote, notesStore } from "../helpers.js";
+import { getDate, addNote, updateNote, notesStore, parseDates } from "../helpers.js";
 import { renderNotes } from "./notes.js";
 import { renderSummary } from "./summary.js";
 
@@ -20,12 +20,13 @@ export const getPopupInfo = () => {
         category = popup.querySelector(".category select").value,
         { month, day, year } = getDate();
 
+    const dates = parseDates(text);
     return {
         title: title,
         text: text,
         date: `${month} ${day}, ${year}`,
         category: CATEGORIES[category],
-        dates: "",
+        dates: dates,
         archived: false
     };
 };

@@ -11,6 +11,14 @@ export const getDate = () => {
     return { month, day, year };
 };
 
+// Parse dates from text
+export const parseDates = (text) => {
+    const regEx = /((?<!\d)(0?[1-9]|1[0-2])[\/\.-](0?[1-9]|[12]\d|3[01])[\/\.-]([12]\d{3}|[12]\d))(?!\d)/g;
+    let result = text.match(regEx);
+    result = result ? result = result.join(', ') : '';
+    return result;
+}
+
 // Getter and setter for localstorage  where "notes" stored
 export const notesStore = (notesArr) => {
     // Setter: set notesArr to local storage and return new storage
