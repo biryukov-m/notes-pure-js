@@ -1,201 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Notes app</title>
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v6.2.0/css/all.css"
-    />
-  </head>
-  <body>
-    <div class="popup-wrapper">
-      <div class="popup">
-        <div class="content">
-          <header>
-            <p>Add a new note</p>
-            <i>X</i>
-          </header>
-          <form action="#">
-            <div class="row title">
-              <label>Title</label>
-              <input type="text" name="" id="" />
-            </div>
-            <div class="row category">
-              <label>Category</label>
-              <select>
-                <option value="task">Task</option>
-                <option value="idea">Idea</option>
-                <option value="random thought">Random thought</option>
-              </select>
-            </div>
-            <div class="row description">
-              <label for="" class="">Description</label>
-              <textarea class="details"></textarea>
-            </div>
-            <button>Add Note</button>
-          </form>
-        </div>
-      </div>
-    </div>
 
-    <header><h1>Notes app</h1></header>
-    <main>
-      <section class="notes-list">
-        <header>
-          <h2>List</h2>
-          <div class="top-controls">
-            <div class="control add-note">
-              <i>+</i>
-              <span>Add new note</span>
-            </div>
-            <div class="control show-archive">
-              <i class="fa-solid fa-box-archive"></i>
-              <span>Show archived notes</span>
-            </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Notes app</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.2.0/css/all.css" />
+</head>
+
+<body>
+
+
+  <header>
+    <h1>Notes app</h1>
+  </header>
+  <main>
+    <section class="notes-list">
+      <header>
+        <h2>List</h2>
+        <div class="top-controls">
+          <div class="control add-note">
+            <i>+</i>
+            <span>Add new note</span>
           </div>
-        </header>
-        <table>
-          <thead>
-            <tr>
-              <td class="icons">
-                <span class="icon"
-                  ><i class="fa-solid fa-file-arrow-up"></i
-                ></span>
-              </td>
-              <th>Name</th>
-              <th>Created</th>
-              <th>Category</th>
-              <th>Content</th>
-              <th>Dates</th>
-              <th>Controls</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="note">
-              <td class="icon-cell">
-                <span class="icon task"
-                  ><i class="fa-solid fa-list-check"></i
-                ></span>
-              </td>
-              <th class="name clip">Shopping list</th>
-              <td class="created">April 20, 2021</td>
-              <td class="category">Task</td>
-              <td class="content clip">Tomatoes, bread</td>
-              <td class="dates clip">12/20/2012</td>
-              <td class="controls">
-                <div class="wrapper">
-                  <span class="icon edit"
-                    ><i class="fa-solid fa-pen-to-square"></i
-                  ></span>
-                  <span class="icon archivate"
-                    ><i class="fa-solid fa-file-arrow-down"></i
-                  ></span>
-                  <span class="icon delete"
-                    ><i class="fa-solid fa-trash"></i
-                  ></span>
-                </div>
-              </td>
-            </tr>
-            <tr class="note">
-              <td class="icon-cell">
-                <span class="icon task"
-                  ><i class="fa-solid fa-comment-dots"></i
-                ></span>
-              </td>
-              <th class="name clip">The theory of evolution</th>
-              <td class="created">April 17, 2021</td>
-              <td class="category">Random thought</td>
-              <td class="content clip">What if dinosaurs was</td>
-              <td class="dates clip">12/20/2012, 01/01/2022</td>
-              <td class="controls">
-                <div class="wrapper">
-                  <span class="icon edit"></span>
-                  <span class="icon archivate"></span>
-                  <span class="icon delete"></span>
-                </div>
-              </td>
-            </tr>
-            <tr class="note">
-              <td class="icon-cell">
-                <span class="icon task"
-                  ><i class="fa-solid fa-lightbulb"></i
-                ></span>
-              </td>
-              <th class="name clip">Invention idea</th>
-              <td class="created">April 10, 2021</td>
-              <td class="category">Idea</td>
-              <td class="content clip">
-                If i can find out how to do that thing
-              </td>
-              <td class="dates clip">12/20/2012, 01/01/2022</td>
-              <td class="controls">
-                <div class="wrapper">
-                  <span class="icon edit"></span>
-                  <span class="icon archivate"></span>
-                  <span class="icon delete"></span>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
+          <div class="control show-archive">
+            <i class="fa-solid fa-box-archive"></i>
+            <span>Show archived notes</span>
+          </div>
+        </div>
+      </header>
+      <table>
+        <thead>
+          <tr>
+            <td class="icons">
+              <span class="icon"><i class="fa-solid fa-file-arrow-up"></i></span>
+            </td>
+            <th>Name</th>
+            <th>Created</th>
+            <th>Category</th>
+            <th>Content</th>
+            <th>Dates</th>
+            <th>Controls</th>
+          </tr>
+        </thead>
+        <tbody>
 
-      <section class="summary">
-        <header>
-          <h2>Summary</h2>
-        </header>
-        <table>
-          <thead>
-            <tr>
-              <td></td>
-              <th>Category</th>
-              <th>Active</th>
-              <th>Archived</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="icon-cell">
-                <span class="icon task"
-                  ><i class="fa-solid fa-list-check"></i
-                ></span>
-              </td>
-              <th class="name">Task</th>
-              <td class="active">12</td>
-              <td class="archived">15</td>
-            </tr>
-            <tr>
-              <td class="icon-cell">
-                <span class="icon task"
-                  ><i class="fa-solid fa-list-check"></i
-                ></span>
-              </td>
-              <th class="name">Idea</th>
-              <td class="active">2</td>
-              <td class="archived">1</td>
-            </tr>
-            <tr>
-              <td class="icon-cell">
-                <span class="icon task"
-                  ><i class="fa-solid fa-list-check"></i
-                ></span>
-              </td>
-              <th class="name">Random thoughts</th>
-              <td class="active">24</td>
-              <td class="archived">5</td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
-    </main>
-  </body>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="summary">
+      <header>
+        <h2>Summary</h2>
+      </header>
+      <table>
+        <thead>
+          <tr>
+            <td></td>
+            <th>Category</th>
+            <th>Active</th>
+            <th>Archived</th>
+          </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+      </table>
+    </section>
+  </main>
+  <script type="module" src="js/app.js"></script>
+</body>
+
 </html>

@@ -200,6 +200,7 @@ tbody .controls .icon:hover {
 .summary td {
   text-align: center;
 }
+
 /* Summary table  start */
 
 /* Popup form start */
@@ -328,8 +329,10 @@ tbody .controls .icon:hover {
   background: var(--hookers-green);
   color: var(--forest-green-crayola);
 }
+
 .content form button:hover {
   background: var(--persian-orange);
   color: var(--lavender-web);
 }
+
 /* Popup form end */
