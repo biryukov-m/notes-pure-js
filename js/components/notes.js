@@ -28,7 +28,6 @@ const editNoteHandler = (event) => {
 
 
 const archivateNoteHandler = (event) => {
-  showError('Something went wrong while archivating');
 
   try {
     const index = event.currentTarget.note_id;
