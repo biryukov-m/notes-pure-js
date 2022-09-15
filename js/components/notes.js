@@ -75,18 +75,18 @@ export const renderNotes = (notes, isShowArchived = false) => {
           </tr>
         `
 
-    // Render to html
+
     document.querySelector('.notes-list tbody').insertAdjacentHTML("afterbegin", component);
 
-    // Add listeners
+
     const noteSelector = document.querySelector(`#note-${index}`);
-    // Add listener to delete button
+
     noteSelector.querySelector(`.delete`).addEventListener("click", deleteNoteHandler);
     noteSelector.querySelector(`.delete`).note_id = index;
-    // Add listener to edit button
+
     noteSelector.querySelector(`.edit`).addEventListener("click", editNoteHandler);
     noteSelector.querySelector(`.edit`).note_id = index;
-    // Add listener to archivate button
+
     noteSelector.querySelector(`.archivate`).addEventListener("click", archivateNoteHandler);
     noteSelector.querySelector(`.archivate`).note_id = index;
     noteSelector.querySelector(`.archivate`).is_show_archivate = isShowArchived;

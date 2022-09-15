@@ -18,7 +18,7 @@ export const showError = (text) => {
 
 
 export const renderHeader = (isShowArchive = false) => {
-    // Remove old popup before rendering new
+
     if (document.querySelector('section.notes-list header')) {
         document.querySelector('section.notes-list header').remove();
     }
@@ -44,11 +44,11 @@ export const renderHeader = (isShowArchive = false) => {
     `
     document.querySelector("section.notes-list").insertAdjacentHTML("afterbegin", component);
 
-    // Add listener to add note
+
     const addNote = document.querySelector('.control.add-note i');
     addNote.addEventListener("click", togglePopup);
 
-    // Add listener to show archived/unarchived
+
     const showArchived = document.querySelector('.control.show-archive i');
     showArchived.addEventListener("click", showArchiveHandler);
     showArchived.toggled_show_archive = !isShowArchive;

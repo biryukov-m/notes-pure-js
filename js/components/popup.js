@@ -4,15 +4,15 @@ import { showError } from "./header.js";
 import { renderNotes } from "./notes.js";
 import { renderSummary } from "./summary.js";
 
-// Makes popup visible/invisible with CSS class "show"
+
 export const togglePopup = () => {
     document.querySelector('.popup-wrapper').classList.toggle('show');
 };
 
-// Clears all inputs in form
+
 export const resetPopup = () => document.querySelector(".popup form").reset();
 
-// Gets all data from inputs and returns in proper note object
+
 export const getPopupInfo = () => {
     const
         popup = document.querySelector(".popup"),
@@ -32,7 +32,7 @@ export const getPopupInfo = () => {
     };
 };
 
-// Handle button click on popup form
+
 export const handleAddBtn = (event) => {
     event.preventDefault();
 
@@ -42,10 +42,10 @@ export const handleAddBtn = (event) => {
         const newNote = getPopupInfo();
         const newNotes = isUpdate ? updateNote(newNote, updateId) : addNote(newNote);
 
-        // Resets popup form after new note added
+
         resetPopup();
         togglePopup();
-        // Renders notes list to display list with new note
+
         renderNotes(newNotes);
         renderPopup();
         renderSummary(newNotes);
@@ -55,7 +55,7 @@ export const handleAddBtn = (event) => {
 
 }
 
-// Handles click on close icon
+
 export const handleCloseIcon = () => {
     togglePopup();
     resetPopup();
@@ -63,7 +63,7 @@ export const handleCloseIcon = () => {
 
 
 export const renderPopup = (updateId, isUpdate = false) => {
-    // Remove old popup before rendering new
+
     if (document.querySelector('.popup-wrapper')) {
         document.querySelector('.popup-wrapper').remove();
     }
@@ -101,8 +101,7 @@ export const renderPopup = (updateId, isUpdate = false) => {
         `
     document.querySelector('body').insertAdjacentHTML("afterbegin", component);
 
-    // If in updating state
-    // Fills form with data of note, which edit triggered
+
     if (isUpdate) {
         const notes = notesStore();
         const note = notes[updateId];
@@ -119,12 +118,12 @@ export const renderPopup = (updateId, isUpdate = false) => {
         textTag.value = note.text;
         categoryTag.value = note.category.selector;
         addButton.innerText = 'Update note';
-        // Props for handker
+
         addButton.update_id = updateId;
         addButton.is_update = isUpdate;
     }
 
-    // Adds listeners to control elements
+
     const
         addButton = document.querySelector('.popup form button'),
         formCloseIcon = document.querySelector('.popup .content header i');
