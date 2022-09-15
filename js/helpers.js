@@ -23,11 +23,11 @@ export const parseDates = (text) => {
 export const notesStore = (notesArr) => {
     // Setter: set notesArr to local storage and return new storage
     if (notesArr) {
-        localStorage.setItem("notes", JSON.stringify(notesArr));
+        localStorage.setItem("notes_store_fix", JSON.stringify(notesArr));
         return notesStore();
     }
     // Getter: if no arguments sent returns notes from local storage
-    return JSON.parse(localStorage.getItem("notes"));
+    return JSON.parse(localStorage.getItem("notes_store_fix"));
 };
 
 // Toggles note property ".archived" 
